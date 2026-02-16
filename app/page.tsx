@@ -1,82 +1,54 @@
 import {
-  Activity,
   ArrowRight,
   BadgeCheck,
   BrainCircuit,
-  FileSearch2,
-  Fingerprint,
   Globe2,
   Handshake,
-  Landmark,
   Mail,
   Network,
   Phone,
   Radar,
-  ScanFace,
-  Smartphone,
 } from "lucide-react"
 import Image from "next/image"
+import Link from "next/link"
 
-const navItems = ["Solutions", "Capabilities", "Method", "Contact"]
-
-const metrics = [
-  { label: "Projects Delivered", value: "40+" },
-  { label: "Automation Workflows", value: "65+" },
-  { label: "Avg. Delivery Speedup", value: "3.4x" },
+const navItems = [
+  { label: "Who We Are", href: "#who-we-are" },
+  { label: "Our Services", href: "#our-services" },
+  { label: "Why Choose Us", href: "#why-choose-us" },
+  { label: "Contact Us", href: "#contact" },
 ]
 
-const challengeBars = [
-  { label: "Acquisition", width: "100%" },
-  { label: "Onboarding", width: "82%" },
-  { label: "Verification", width: "64%" },
-  { label: "Transaction", width: "46%" },
+const services = [
+  "Data Analytics & Insights",
+  "Applied Data Science",
+  "AI & Intelligent Systems",
+  "Generative AI & Conversational Agents",
+  "Website Design & Development",
+  "Mobile App Development",
+  "Full-Stack Development",
+  "Creative Design & Branding",
+  "Digital Marketing & Growth Strategy",
 ]
 
-const capabilityCards = [
-  {
-    icon: Fingerprint,
-    title: "Digital Footprints",
-    description: "Cross-platform behavior signatures and interaction patterns.",
-  },
+const highlights = [
   {
     icon: BrainCircuit,
-    title: "Cognitive Signals",
-    description: "Intent detection from timing, navigation, and response traits.",
+    title: "Tailored Solutions",
+    description:
+      "Every project is tailored to your goals for solutions that are practical, efficient, and truly yours.",
   },
   {
-    icon: Smartphone,
-    title: "Device Intelligence",
-    description: "Hardware consistency, emulator checks, and device risk scoring.",
+    icon: BadgeCheck,
+    title: "On-Time Delivery",
+    description:
+      "We value your deadlines and ensure timely delivery with smart planning and quality execution.",
   },
   {
-    icon: Radar,
-    title: "Geo Context",
-    description: "Location confidence with anomaly-aware movement validation.",
-  },
-  {
-    icon: Network,
-    title: "Network Trust",
-    description: "Proxy and network quality detection to reduce spoofing risk.",
-  },
-  {
-    icon: ScanFace,
-    title: "Identity Proofing",
-    description: "Layered ID checks to spot mismatch and synthetic activity.",
-  },
-  {
-    icon: FileSearch2,
-    title: "Document Validation",
-    description: "Document structure and metadata checks for forged artifacts.",
-  },
-  {
-    icon: Landmark,
-    title: "Compliance Guardrails",
-    description: "Policy-first automation for regulated onboarding workflows.",
-  },
-  {
-    icon: Activity,
-    title: "Transaction Intent",
-    description: "Early transaction behavior signals for faster risk decisions.",
+    icon: Handshake,
+    title: "Support",
+    description:
+      "From start to finish, we guide, document, and support you every step of the way.",
   },
 ]
 
@@ -97,7 +69,7 @@ export default function Home() {
     { Icon: Radar, top: "40%", label: "Risk" },
     { Icon: Globe2, top: "53%", label: "Geo" },
     { Icon: Network, top: "66%", label: "Network" },
-    { Icon: Handshake, top: "79%", label: "Decision" },
+    { Icon: Handshake, top: "79%", label: "Delivery" },
   ]
 
   return (
@@ -108,7 +80,7 @@ export default function Home() {
           {particles.map((dot) => (
             <span
               key={dot.id}
-              className="absolute rounded-full bg-[#39b8f0] blur-[1px] animate-pulse"
+              className="absolute animate-pulse rounded-full bg-[#39b8f0] blur-[1px]"
               style={{
                 left: dot.left,
                 top: dot.top,
@@ -128,7 +100,7 @@ export default function Home() {
               <div className="relative h-14 w-14 overflow-hidden rounded-xl border border-cyan-300/30 bg-white/95 shadow-[0_0_40px_rgba(50,179,241,0.2)]">
                 <Image
                   src="/techmitra-logo.jpeg"
-                  alt="TechMitra logo"
+                  alt="Tech Mitra logo"
                   fill
                   sizes="56px"
                   className="object-cover"
@@ -137,10 +109,10 @@ export default function Home() {
               </div>
               <div>
                 <p className="text-xl font-extrabold tracking-tight text-[#51c5f7]">
-                  TechMitra
+                  Tech Mitra
                 </p>
                 <p className="text-xs font-medium tracking-[0.18em] text-[#9bcbe4] uppercase">
-                  Intelligent Digital Systems
+                  Shaping Ideas Into Scalable Solutions
                 </p>
               </div>
             </div>
@@ -148,53 +120,52 @@ export default function Home() {
             <nav className="flex flex-wrap items-center gap-6 text-sm font-semibold text-[#d2ebfb]">
               {navItems.map((item) => (
                 <a
-                  key={item}
-                  href={item === "Contact" ? "#contact" : "#"}
+                  key={item.label}
+                  href={item.href}
                   className="transition hover:text-[#53cdf8]"
                 >
-                  {item}
+                  {item.label}
                 </a>
               ))}
-              <a
-                href="#contact"
+              <Link
+                href="/ask-for-demo"
                 className="inline-flex items-center gap-2 rounded-full border border-[#38b9ef] bg-[#38b9ef]/15 px-5 py-2 text-[#bcf2ff] transition hover:bg-[#38b9ef]/25"
               >
                 Ask for demo
                 <ArrowRight className="h-4 w-4" />
-              </a>
+              </Link>
             </nav>
           </header>
 
           <div className="mt-11 grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.05fr]">
             <div>
               <p className="text-sm font-semibold tracking-[0.16em] text-[#89c9e8] uppercase">
-                advanced risk intelligence
+                Tech Mitra
               </p>
               <h1 className="mt-3 text-4xl leading-[1.1] font-extrabold text-[#62ccf6] sm:text-5xl lg:text-6xl">
-                DECISION ENGINE
+                Shaping Ideas into
                 <br />
-                FOR TRUSTED
-                <br />
-                DIGITAL JOURNEYS
+                Scalable Solutions
               </h1>
               <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#d7ecf7]/90">
-                TechMitra blends product engineering and AI analytics to detect
-                suspicious intent early, automate verification workflows, and
-                improve onboarding confidence.
+                Every project deserves more than just code - it deserves a
+                vision. Tech Mitra specialises in end-to-end development,
+                combining data science, AI, and design to deliver solutions that
+                stand out.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <a
-                  href="#contact"
+                <Link
+                  href="/ask-for-demo"
                   className="inline-flex items-center gap-2 rounded-full border border-[#52cbf8] bg-[#52cbf8]/10 px-5 py-2.5 font-semibold text-[#bdeeff] transition hover:bg-[#52cbf8]/20"
                 >
-                  Quick Preview
+                  Ask for demo
                   <ArrowRight className="h-4 w-4" />
-                </a>
+                </Link>
                 <a
-                  href="#model"
+                  href="#contact"
                   className="inline-flex items-center gap-2 rounded-full border border-[#f0a342]/45 bg-[#f0a342]/10 px-5 py-2.5 font-semibold text-[#ffd39f] transition hover:bg-[#f0a342]/20"
                 >
-                  See 9-Box Model
+                  Contact Us
                 </a>
               </div>
             </div>
@@ -209,7 +180,7 @@ export default function Home() {
               <div className="absolute inset-0 grid place-items-center">
                 <div className="rounded-2xl border border-[#53cdf8]/45 bg-[#031425]/85 px-5 py-4 text-center shadow-[0_0_40px_rgba(62,196,250,0.2)]">
                   <p className="text-sm tracking-[0.16em] text-[#8ecce9] uppercase">
-                    TechMitra Core
+                    Tech Mitra
                   </p>
                   <p className="mt-1 text-3xl font-extrabold text-[#61cef6]">
                     AI + Data
@@ -219,7 +190,7 @@ export default function Home() {
               {heroNodes.map(({ Icon, top, label }) => (
                 <div
                   key={label}
-                  className="absolute left-[54%] right-0"
+                  className="absolute right-0 left-[54%]"
                   style={{ top }}
                 >
                   <div className="relative h-0.5 w-full bg-linear-to-r from-[#50c6f2]/70 to-transparent">
@@ -234,174 +205,75 @@ export default function Home() {
               ))}
             </div>
           </div>
-
-          <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-3">
-            {metrics.map((metric) => (
-              <article
-                key={metric.label}
-                className="rounded-2xl border border-cyan-300/20 bg-[#041425]/85 px-5 py-4 shadow-[0_16px_32px_rgba(0,0,0,0.35)]"
-              >
-                <p className="text-3xl font-extrabold text-[#62cef8]">
-                  {metric.value}
-                </p>
-                <p className="mt-1 text-sm text-[#cbe9f7]/80">{metric.label}</p>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
-      <section className="relative border-b border-cyan-500/15 bg-[#02060f] py-18">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-8 lg:grid-cols-[1fr_1fr] lg:px-10">
-          <article>
-            <h2 className="text-4xl font-extrabold tracking-tight text-[#eff8ff] sm:text-5xl">
-              What is our <span className="text-[#5dcdf7]">hypothesis?</span>
-            </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[#c6def0]">
-              Traditional verification starts too late. By the time risk rules
-              trigger, suspicious users may already cross acquisition and login
-              steps. TechMitra shifts risk sensing to the earliest touchpoints.
-            </p>
-            <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#c6def0]">
-              We score intent continuously, combining identity confidence with
-              behavioral and device context before high-value actions happen.
-            </p>
-          </article>
+      <section className="border-b border-cyan-500/15 bg-[#01050d] py-16">
+        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-8 lg:grid-cols-[1fr_0.9fr] lg:px-10">
+          <div className="space-y-12">
+            <article id="who-we-are">
+              <h2 className="text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
+                Who We Are?
+              </h2>
+              <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#c6def0]">
+                At Tech Mitra, we believe that great ideas deserve the right
+                execution. We combine AI, analytics, full-stack development, and
+                design to craft solutions that work in the real world.
+              </p>
+              <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[#c6def0]">
+                From dashboards that turn numbers into growth stories, to
+                websites that convert, we deliver creatively, precisely, and
+                reliably with technology as our backbone.
+              </p>
+            </article>
 
-          <article className="rounded-3xl border border-cyan-400/20 bg-[#031325]/75 p-6 shadow-[0_24px_50px_rgba(0,0,0,0.35)] sm:p-8">
-            <p className="text-sm font-semibold tracking-[0.16em] text-[#9fd7ee] uppercase">
-              problem signal
-            </p>
-            <h3 className="mt-2 text-3xl font-bold text-[#60cdf8]">
-              Leakage in early onboarding
-            </h3>
-            <div className="mt-7 space-y-3">
-              {challengeBars.map((bar, index) => (
-                <div key={bar.label} className="space-y-1.5">
-                  <div className="flex items-center justify-between text-xs font-semibold tracking-[0.12em] text-[#aedff3] uppercase">
-                    <span>{bar.label}</span>
-                    <span>{index === 0 ? "High volume" : "Filter gap"}</span>
-                  </div>
-                  <div className="h-10 rounded-full border border-cyan-300/25 bg-[#04192f] p-1">
-                    <div
-                      className="flex h-full items-center justify-end rounded-full bg-linear-to-r from-[#3db8ef] to-[#ef9f3f] pr-4 text-xs font-bold text-[#001120]"
-                      style={{ width: bar.width }}
-                    >
-                      Risk escapes
+            <article id="why-choose-us">
+              <h2 className="text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
+                Why Choose Us?
+              </h2>
+              <ul className="mt-7 space-y-4">
+                {highlights.map((item) => (
+                  <li
+                    key={item.title}
+                    className="rounded-2xl border border-cyan-300/20 bg-[#041324]/85 p-5"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="rounded-lg border border-cyan-300/30 bg-[#082339] p-2.5 text-[#63cef7]">
+                        <item.icon className="h-5 w-5" />
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-bold text-[#e7f7ff]">
+                          {item.title}
+                        </h3>
+                        <p className="mt-2 text-base leading-relaxed text-[#c4deee]">
+                          {item.description}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </div>
+                  </li>
+                ))}
+              </ul>
+            </article>
+          </div>
+
+          <aside
+            id="our-services"
+            className="rounded-3xl border border-cyan-300/20 bg-[#041324]/80 p-6 sm:p-8"
+          >
+            <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
+              Our Services
+            </h2>
+            <ul className="mt-7 space-y-3">
+              {services.map((service) => (
+                <li
+                  key={service}
+                  className="rounded-lg border border-cyan-300/25 bg-[#10244d] px-4 py-3 text-base font-semibold text-[#e9f6ff]"
+                >
+                  {service}
+                </li>
               ))}
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section className="border-b border-cyan-500/15 bg-[#01050d] py-18">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 items-center gap-12 px-4 sm:px-8 lg:grid-cols-[1fr_1fr] lg:px-10">
-          <article>
-            <h2 className="text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
-              What are we <span className="text-[#5ecdf6]">proposing?</span>
-            </h2>
-            <p className="mt-5 text-lg leading-relaxed text-[#c6deef]">
-              A modular KYC++ layer that sits on top of your existing
-              onboarding. We derive decision-ready intelligence from what users
-              have, what users know, and how they behave across the journey.
-            </p>
-            <div className="mt-8 space-y-4">
-              <div className="rounded-2xl border border-[#52cbf8]/35 bg-[#06192b] p-4">
-                <p className="text-sm font-semibold tracking-[0.14em] text-[#9bd8ef] uppercase">
-                  Layer 1
-                </p>
-                <p className="mt-1 text-xl font-semibold text-[#e8f9ff]">
-                  Existing KYC Inputs
-                </p>
-              </div>
-              <div className="rounded-2xl border border-[#f0a342]/35 bg-[#28180a]/70 p-4">
-                <p className="text-sm font-semibold tracking-[0.14em] text-[#ffd59d] uppercase">
-                  Layer 2
-                </p>
-                <p className="mt-1 text-xl font-semibold text-[#fff3df]">
-                  TechMitra Derived Intelligence
-                </p>
-              </div>
-              <div className="rounded-2xl border border-[#52cbf8]/35 bg-[#06192b] p-4">
-                <p className="text-sm font-semibold tracking-[0.14em] text-[#9bd8ef] uppercase">
-                  Layer 3
-                </p>
-                <p className="mt-1 text-xl font-semibold text-[#e8f9ff]">
-                  Adaptive Decision Automation
-                </p>
-              </div>
-            </div>
-          </article>
-
-          <article className="rounded-3xl border border-cyan-300/20 bg-[#041324]/85 p-6 sm:p-8">
-            <p className="text-sm font-semibold tracking-[0.16em] text-[#9ed7ee] uppercase">
-              model design
-            </p>
-            <h3 className="mt-2 text-3xl font-bold text-[#63cef8]">
-              TechMitra KYC++ Stack
-            </h3>
-            <div className="mt-6 space-y-3">
-              <div className="rounded-xl border border-[#f0a84d]/45 bg-[#f0a84d]/15 p-4 text-center text-sm font-semibold text-[#ffd5a0]">
-                What you can derive (TechMitra Layer)
-              </div>
-              <div className="grid grid-cols-2 gap-3">
-                <div className="rounded-xl border border-cyan-300/25 bg-[#06192d] p-5 text-center">
-                  <p className="text-sm tracking-wide text-[#9dd5eb]">
-                    What you
-                  </p>
-                  <p className="text-2xl font-bold text-[#e4f7ff]">HAVE</p>
-                </div>
-                <div className="rounded-xl border border-cyan-300/25 bg-[#06192d] p-5 text-center">
-                  <p className="text-sm tracking-wide text-[#9dd5eb]">
-                    What you
-                  </p>
-                  <p className="text-2xl font-bold text-[#e4f7ff]">KNOW</p>
-                </div>
-              </div>
-              <div className="rounded-xl border border-cyan-300/25 bg-[#06192d] p-5 text-center">
-                <p className="text-sm tracking-wide text-[#9dd5eb]">
-                  What you do
-                </p>
-                <p className="text-2xl font-bold text-[#e4f7ff]">BEHAVE</p>
-              </div>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="model" className="bg-[#01050d] py-18">
-        <div className="mx-auto max-w-7xl px-4 sm:px-8 lg:px-10">
-          <div className="mx-auto max-w-3xl text-center">
-            <h2 className="text-4xl font-extrabold tracking-tight text-[#f3fbff] sm:text-5xl">
-              9 Box <span className="text-[#5ecdf7]">Model</span>
-            </h2>
-            <p className="mt-4 text-lg text-[#c3ddef]">
-              A triangulated risk profile across identity, behavior, device,
-              network, and compliance signals for better decision quality.
-            </p>
-          </div>
-
-          <div className="mx-auto mt-10 grid max-w-4xl grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {capabilityCards.map((card) => (
-              <article
-                key={card.title}
-                className="group rounded-2xl border border-cyan-300/20 bg-[linear-gradient(135deg,rgba(8,30,50,0.9),rgba(6,20,35,0.92))] p-5 shadow-[0_14px_26px_rgba(0,0,0,0.3)] transition hover:-translate-y-1 hover:border-[#5acdf7]/50 hover:shadow-[0_18px_32px_rgba(36,157,209,0.2)]"
-              >
-                <div className="inline-flex rounded-lg border border-cyan-300/30 bg-[#082339] p-2.5 text-[#63cef7]">
-                  <card.icon className="h-5 w-5" />
-                </div>
-                <h3 className="mt-4 text-xl font-bold text-[#ebf8ff]">
-                  {card.title}
-                </h3>
-                <p className="mt-2 text-sm leading-relaxed text-[#c4deee]">
-                  {card.description}
-                </p>
-              </article>
-            ))}
-          </div>
+            </ul>
+          </aside>
         </div>
       </section>
 
@@ -412,12 +284,8 @@ export default function Home() {
         <div className="mx-auto flex max-w-7xl flex-col gap-7 px-4 py-8 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
           <div>
             <h2 className="text-4xl font-extrabold text-[#67d0f7] sm:text-5xl">
-              Let&apos;s Build With TechMitra
+              Contact Us
             </h2>
-            <p className="mt-2 text-[#d5ecf8]">
-              Share your workflow or product challenge and we will map the
-              fastest path to launch.
-            </p>
           </div>
 
           <div className="flex flex-col gap-3 text-base text-[#ebf8ff] sm:text-lg">
