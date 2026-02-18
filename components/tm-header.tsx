@@ -49,10 +49,10 @@ export default function TMHeader() {
           </a>
         ))}
         <Link
-          href="/ask-for-demo"
+          href="/ask-for-previous-work"
           className="inline-flex items-center gap-2 rounded-full border border-[#38b9ef] bg-[#38b9ef]/15 px-5 py-2 text-[#bcf2ff] transition hover:bg-[#38b9ef]/25"
         >
-          Ask for demo
+          Ask for previous work
           <ArrowRight className="h-4 w-4" />
         </Link>
         <Unauthenticated>

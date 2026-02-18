@@ -12,16 +12,34 @@ import {
 } from "lucide-react"
 import Link from "next/link"
 
-const services = [
-  "Data Analytics & Insights",
-  "Applied Data Science",
-  "AI & Intelligent Systems",
-  "Generative AI & Conversational Agents",
-  "Website Design & Development",
-  "Mobile App Development",
-  "Full-Stack Development",
-  "Creative Design & Branding",
-  "Digital Marketing & Growth Strategy",
+const serviceGroups = [
+  {
+    title: "Technology & Development",
+    items: [
+      "Data Analytics Solutions",
+      "Data Science Solutions",
+      "AI Agents Development",
+      "Generative AI Solutions",
+      "Website Design & Development",
+      "Web Application Development",
+      "Mobile Application Development",
+      "Full-Stack Project Development",
+      "E-Learning Platform Development",
+      "Customer Relationship Management (CRM) Systems",
+    ],
+  },
+  {
+    title: "Design & Creative Services",
+    items: [
+      "UI/UX Design",
+      "Graphic Designing",
+      "Content Creation (Posters, Branding Creatives)",
+    ],
+  },
+  {
+    title: "Marketing & Growth",
+    items: ["Digital Marketing", "Growth Strategy & Lead Generation"],
+  },
 ]
 
 const highlights = [
@@ -108,10 +126,10 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
                 <Link
-                  href="/ask-for-demo"
+                  href="/ask-for-previous-work"
                   className="inline-flex items-center gap-2 rounded-full border border-[#52cbf8] bg-[#52cbf8]/10 px-5 py-2.5 font-semibold text-[#bdeeff] transition hover:bg-[#52cbf8]/20"
                 >
-                  Ask for demo
+                  Ask for previous work
                   <ArrowRight className="h-4 w-4" />
                 </Link>
                 <a
@@ -216,16 +234,25 @@ export default function Home() {
             <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
               Our Services
             </h2>
-            <ul className="mt-7 space-y-3">
-              {services.map((service) => (
-                <li
-                  key={service}
-                  className="rounded-lg border border-cyan-300/25 bg-[#10244d] px-4 py-3 text-base font-semibold text-[#e9f6ff]"
-                >
-                  {service}
-                </li>
+            <div className="mt-7 space-y-6">
+              {serviceGroups.map((group) => (
+                <div key={group.title}>
+                  <h3 className="text-xs font-bold tracking-[0.14em] text-[#90d6f2] uppercase">
+                    {group.title}
+                  </h3>
+                  <ul className="mt-3 space-y-3">
+                    {group.items.map((service) => (
+                      <li
+                        key={service}
+                        className="rounded-lg border border-cyan-300/25 bg-[#10244d] px-4 py-3 text-base font-semibold text-[#e9f6ff]"
+                      >
+                        {service}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               ))}
-            </ul>
+            </div>
           </aside>
         </div>
       </section>
