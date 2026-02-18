@@ -1,8 +1,6 @@
-ignoredBuiltDependencies:
-  - sharp
-  - unrs-resolver
-
-onlyBuiltDependencies:
-  - "@clerk/shared"
-  - esbuild
-  - msw
+allowBuilds:
+  esbuild: true
+  "@clerk/shared": true
+  msw: true
+  sharp: false
+  unrs-resolver: false
