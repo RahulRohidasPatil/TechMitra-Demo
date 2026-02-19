@@ -1,4 +1,4 @@
-import { mutation } from "./_generated/server"
+import { mutation, query } from "./_generated/server"
 import { ConvexError, v } from "convex/values"
 
 const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
@@ -64,5 +64,35 @@ export const requestAccess = mutation({
       leadId,
       createdAt,
     }
+  },
+})
+
+export const listAccessRequests = query({
+  args: {},
+  handler: async (ctx) => {
+    const identity = await ctx.auth.getUserIdentity()
+
+    if (!identity) {
+      throw new ConvexError("You must be signed in to view access requests")
+    }
+
+    const leads = await ctx.db
+      .query("previousWorkAccessLeads")
+      .withIndex("by_created_at")
+      .order("desc")
+      .collect()
+
+    return leads.map((lead) => ({
+      id: lead._id,
+      firstName: lead.firstName,
+      lastName: lead.lastName,
+      mobileNumber: lead.mobileNumber,
+      companyEmail: lead.companyEmail,
+      companyName: lead.companyName,
+      industry: lead.industry,
+      location: lead.location,
+      useCase: lead.useCase,
+      createdAt: lead.createdAt,
+    }))
   },
 })

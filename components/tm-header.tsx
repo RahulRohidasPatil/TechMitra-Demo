@@ -61,6 +61,12 @@ export default function TMHeader() {
           </SignInButton>
         </Unauthenticated>
         <Authenticated>
+          <Link
+            href="/previous-work-requests"
+            className="inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-[#06223a]/70 px-4 py-2 text-sm font-semibold text-[#bdefff] transition hover:bg-[#0a2f4f]"
+          >
+            Access requests
+          </Link>
           <UserButton />
         </Authenticated>
       </nav>
