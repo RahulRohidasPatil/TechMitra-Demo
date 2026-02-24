@@ -75,13 +75,13 @@ export default function Home() {
   }))
 
   const heroNodes = [
-    { Icon: BadgeCheck, top: "14%", label: "Trust" },
-    { Icon: BrainCircuit, top: "27%", label: "Signals" },
-    { Icon: Radar, top: "40%", label: "Risk" },
-    { Icon: Globe2, top: "53%", label: "Geo" },
-    { Icon: Network, top: "66%", label: "Network" },
-    { Icon: Handshake, top: "79%", label: "Delivery" },
-  ]
+  { Icon: BadgeCheck, angle: -70, radius: 36, label: "Trust" },
+  { Icon: BrainCircuit, angle: -20, radius: 38, label: "Signals" },
+  { Icon: Radar, angle: 35, radius: 36, label: "Risk" },
+  { Icon: Globe2, angle: 95, radius: 34, label: "Geo" },
+  { Icon: Network, angle: 150, radius: 36, label: "Network" },
+  { Icon: Handshake, angle: 210, radius: 34, label: "Delivery" },
+];
 
   return (
     <main className="min-h-screen bg-[#01050d] text-[#f0fbff]">
@@ -141,49 +141,75 @@ export default function Home() {
               </div>
             </div>
 
-            <div className="relative mx-auto aspect-square w-full max-w-140">
-              <div className="absolute inset-0 rounded-[34%] bg-[radial-gradient(circle_at_40%_40%,rgba(56,183,237,0.2),transparent_58%)] blur-2xl" />
-              <div className="absolute inset-[11%] rounded-[38%] border border-[#4fc8f5]/45" />
-              <div className="absolute inset-[16%] rounded-[40%] border border-[#4fc8f5]/35" />
-              <div className="absolute inset-[21%] rounded-[42%] border border-[#4fc8f5]/25" />
-              <div className="absolute inset-[26%] rounded-[43%] border border-[#4fc8f5]/20" />
-              <div className="absolute inset-[31%] rounded-[45%] border border-[#f0a13f]/40 bg-[#041526]/85 shadow-[0_0_60px_rgba(56,187,240,0.3)]" />
+            <div className="relative isolate mx-auto aspect-square w-full max-w-140">
+              {/* Ambient glow */}
+              <div className="pointer-events-none absolute -inset-[8%] rounded-[42%] bg-[radial-gradient(circle_at_28%_24%,rgba(94,209,248,0.38),transparent_58%),radial-gradient(circle_at_72%_74%,rgba(240,161,63,0.22),transparent_52%)] opacity-90 blur-3xl" />
+
+              {/* Bowl */}
+              <div className="absolute inset-[4%] rounded-[40%] border border-[#54cdf7]/35 bg-[radial-gradient(circle_at_50%_35%,rgba(23,97,145,0.28),rgba(3,15,28,0.96))] shadow-[inset_0_0_55px_rgba(88,206,252,0.14),0_0_70px_rgba(56,187,240,0.18)]" />
+
+              {/* Orbit rings (subtle rotation) */}
+              <div className="pointer-events-none absolute inset-[12%] rounded-full bg-[conic-gradient(from_180deg,rgba(99,217,255,0.0),rgba(99,217,255,0.28),rgba(240,161,63,0.18),rgba(99,217,255,0.0))] opacity-80 blur-[0.5px] motion-safe:animate-[spin_22s_linear_infinite] motion-reduce:animate-none" />
+              <div className="pointer-events-none absolute inset-[14%] rounded-full border [border-width:1px] border-dashed border-[#4fc8f5]/18 opacity-70 motion-safe:animate-[spin_34s_linear_infinite] motion-safe:direction-[reverse] motion-reduce:animate-none" />
+
+              {/* Inner rings */}
+              <div className="pointer-events-none absolute inset-[22%] rounded-[44%] border border-[#4fc8f5]/22" />
+              <div className="pointer-events-none absolute inset-[30%] rounded-[46%] border border-[#f0a13f]/32 shadow-[0_0_55px_rgba(56,187,240,0.18)]" />
+
+              {/* Center card */}
               <div className="absolute inset-0 grid place-items-center">
-                <div className="rounded-2xl border border-[#53cdf8]/45 bg-[#031425]/85 px-5 py-4 text-center shadow-[0_0_40px_rgba(62,196,250,0.2)]">
-                  <p className="text-sm tracking-[0.16em] text-[#8ecce9] uppercase">
+                <div className="rounded-3xl border border-[#53cdf8]/45 bg-[linear-gradient(180deg,rgba(2,22,41,0.92),rgba(3,20,37,0.78))] px-7 py-6 text-center shadow-[inset_0_0_34px_rgba(56,178,233,0.14),0_0_48px_rgba(62,196,250,0.18)] backdrop-blur-sm">
+                  <div className="mx-auto mb-2 inline-flex items-center gap-2 rounded-full border border-[#57cff8]/35 bg-[#083055]/50 px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-[#a6def3] uppercase">
+                    <BrainCircuit className="h-3.5 w-3.5 text-[#67d5f9] drop-shadow-[0_0_10px_rgba(93,214,251,0.65)]" />
+                    Scalable Solutions
+                  </div>
+                  <p className="text-sm tracking-[0.18em] text-[#8ecce9] uppercase">
                     Tech Mitra
                   </p>
-                  <p className="mt-1 text-3xl font-extrabold text-[#61cef6]">
+                  <p className="mt-1 text-3xl font-extrabold text-[#61cef6] drop-shadow-[0_0_14px_rgba(93,214,251,0.35)]">
                     AI + Data
                   </p>
                 </div>
               </div>
-              {heroNodes.map(({ Icon, top, label }) => (
-                <div
-                  key={label}
-                  className="absolute right-0 left-[54%]"
-                  style={{ top }}
-                >
-                  <div className="relative h-0.5 w-full bg-linear-to-r from-[#50c6f2]/70 to-transparent">
-                    <div className="group absolute top-1/2 right-0 -translate-y-1/2">
-                      <span className="pointer-events-none absolute top-1/2 right-full mr-3 -translate-y-1/2 translate-x-1 rounded-full border border-[#4ac4f3]/55 bg-[#041423]/95 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-[#bdefff] opacity-0 shadow-[0_0_20px_rgba(78,196,244,0.2)] transition duration-200 group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100">
+
+              {/* Polar-positioned nodes */}
+              {heroNodes.map(({ Icon, angle, radius, label }) => {
+                const rad = (angle * Math.PI) / 180
+                const x = (radius * Math.cos(rad)).toFixed(3)
+                const y = (radius * Math.sin(rad)).toFixed(3)
+
+                return (
+                  <div
+                    key={label}
+                    className="absolute"
+                    style={{
+                      left: `calc(50% + ${x}%)`,
+                      top: `calc(50% + ${y}%)`,
+                    }}
+                  >
+                    <div className="group relative -translate-x-1/2 -translate-y-1/2">
+                      {/* Tooltip */}
+                      <span className="pointer-events-none absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 rounded-full border border-[#4ac4f3]/55 bg-[#041423]/95 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-[#c9f3ff] opacity-0 shadow-[0_0_26px_rgba(78,196,244,0.22)] backdrop-blur-sm transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100">
                         {label}
                       </span>
-                      <div
-                        tabIndex={0}
+
+                      {/* Glow halo */}
+                      <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#56cff8]/18 opacity-0 blur-md transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100" />
+
+                      <button
+                        type="button"
                         aria-label={label}
-                        className="grid h-9 w-9 place-items-center rounded-full border border-[#4ac4f3]/60 bg-[#041423] text-[#bdefff] shadow-[0_0_25px_rgba(78,196,244,0.2)] outline-none ring-[#5cd1f8]/60 transition focus-visible:ring-2"
+                        className="relative grid h-10 w-10 place-items-center rounded-full border border-[#4ac4f3]/60 bg-[#041423]/95 text-[#bdefff] shadow-[0_0_28px_rgba(78,196,244,0.20)] transition duration-200 outline-none group-hover:scale-105 focus-visible:scale-105 focus-visible:ring-2 focus-visible:ring-[#5cd1f8]/60"
                       >
                         <Icon
                           aria-hidden
-                          className="h-4 w-4 text-[#5cd1f8] drop-shadow-[0_0_6px_rgba(92,209,248,0.7)]"
+                          className="h-4.5 w-4.5 text-[#5cd1f8] drop-shadow-[0_0_10px_rgba(92,209,248,0.65)]"
                         />
-                        <span className="sr-only">{label}</span>
-                      </div>
+                      </button>
                     </div>
                   </div>
-                </div>
-              ))}
+                )
+              })}
             </div>
           </div>
         </div>
