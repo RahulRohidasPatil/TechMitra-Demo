@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BadgeCheck,
   BrainCircuit,
+  ChevronDown,
   Globe2,
   Handshake,
   Mail,
@@ -14,31 +15,48 @@ import Link from "next/link"
 
 const serviceGroups = [
   {
-    title: "Technology & Development",
+    title: "Design",
     items: [
-      "Data Analytics Solutions",
-      "Data Science Solutions",
-      "AI Agents Development",
-      "Generative AI Solutions",
-      "Website Design & Development",
-      "Web Application Development",
-      "Mobile Application Development",
-      "Full-Stack Project Development",
-      "E-Learning Platform Development",
-      "Customer Relationship Management (CRM) Systems",
+      "Web Design",
+      "App Design",
+      "UI/ UX Design",
+      "Content Design",
+      "Graphic Design",
+      "Brand Visuals",
     ],
   },
   {
-    title: "Design & Creative Services",
+    title: "Develop",
     items: [
-      "UI/UX Design",
-      "Graphic Designing",
-      "Content Creation (Posters, Branding Creatives)",
+      "Growth Intelligence Dashboard",
+      "Decision Intelligence Model",
+      "Genetic AI Solutions Expert",
+      "Customer Relationship Management (CRM)",
+      "Digital Marketing",
+      "Front End Deployment",
+      "Back End Deployment",
+      "Full Stack Web Apps",
+      "Cloud Solutions",
     ],
   },
   {
-    title: "Marketing & Growth",
-    items: ["Digital Marketing", "Growth Strategy & Lead Generation"],
+    title: "Support",
+    items: [
+      "Maintenance Plans",
+      "Monitoring",
+      "Security Patches",
+      "A/B Experiments",
+    ],
+  },
+  {
+    title: "Delivery & Deployment",
+    items: [
+      "Deployment Setup",
+      "CI / CD Pipelines",
+      "LinkedIn Optimization",
+      "SEO & Accessibility",
+      "Cross-device Testing",
+    ],
   },
 ]
 
@@ -270,13 +288,27 @@ export default function Home() {
             <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
               Our Services
             </h2>
-            <div className="mt-7 space-y-6">
+            <div className="mt-7 space-y-4">
               {serviceGroups.map((group) => (
-                <div key={group.title}>
-                  <h3 className="text-xs font-bold tracking-[0.14em] text-[#90d6f2] uppercase">
-                    {group.title}
-                  </h3>
-                  <ul className="mt-3 space-y-3">
+                <details
+                  key={group.title}
+                  className="group overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#081f38]/70 [&_summary::-webkit-details-marker]:hidden"
+                >
+                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5">
+                    <div>
+                      <h3 className="text-xs font-bold tracking-[0.14em] text-[#90d6f2] uppercase">
+                        {group.title}
+                      </h3>
+                      <p className="mt-1 text-xs text-[#9bc9df]/80">
+                        {group.items.length} services
+                      </p>
+                    </div>
+                    <span className="rounded-full border border-cyan-300/30 bg-[#0e2c4d] p-1.5 text-[#9bdcf8] transition group-open:bg-[#13436f]">
+                      <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open:rotate-180" />
+                    </span>
+                  </summary>
+
+                  <ul className="space-y-2 px-4 pb-4">
                     {group.items.map((service) => (
                       <li
                         key={service}
@@ -286,7 +318,7 @@ export default function Home() {
                       </li>
                     ))}
                   </ul>
-                </div>
+                </details>
               ))}
             </div>
           </aside>
