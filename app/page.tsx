@@ -165,10 +165,20 @@ export default function Home() {
                   style={{ top }}
                 >
                   <div className="relative h-0.5 w-full bg-linear-to-r from-[#50c6f2]/70 to-transparent">
-                    <div className="absolute top-1/2 right-0 -translate-y-1/2">
-                      <div className="flex items-center gap-2 rounded-full border border-[#4ac4f3]/55 bg-[#041423] px-2.5 py-1.5 text-xs font-semibold text-[#bdefff] shadow-[0_0_25px_rgba(78,196,244,0.2)]">
-                        <Icon className="h-3.5 w-3.5 text-[#5cd1f8]" />
+                    <div className="group absolute top-1/2 right-0 -translate-y-1/2">
+                      <span className="pointer-events-none absolute top-1/2 right-full mr-3 -translate-y-1/2 translate-x-1 rounded-full border border-[#4ac4f3]/55 bg-[#041423]/95 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-[#bdefff] opacity-0 shadow-[0_0_20px_rgba(78,196,244,0.2)] transition duration-200 group-hover:translate-x-0 group-hover:opacity-100 group-focus-within:translate-x-0 group-focus-within:opacity-100">
                         {label}
+                      </span>
+                      <div
+                        tabIndex={0}
+                        aria-label={label}
+                        className="grid h-9 w-9 place-items-center rounded-full border border-[#4ac4f3]/60 bg-[#041423] text-[#bdefff] shadow-[0_0_25px_rgba(78,196,244,0.2)] outline-none ring-[#5cd1f8]/60 transition focus-visible:ring-2"
+                      >
+                        <Icon
+                          aria-hidden
+                          className="h-4 w-4 text-[#5cd1f8] drop-shadow-[0_0_6px_rgba(92,209,248,0.7)]"
+                        />
+                        <span className="sr-only">{label}</span>
                       </div>
                     </div>
                   </div>
