@@ -9,7 +9,6 @@ import { Button } from "./ui/button"
 
 const navItems = [
   { label: "Who We Are", href: "#who-we-are" },
-  { label: "Our Services", href: "#our-services" },
   { label: "Why Choose Us", href: "#why-choose-us" },
   { label: "Contact Us", href: "#contact" },
 ]
@@ -48,6 +47,9 @@ export default function TMHeader() {
             {item.label}
           </a>
         ))}
+        <Link href="/services" className="transition hover:text-[#53cdf8]">
+          Services
+        </Link>
         <Link
           href="/ask-for-previous-work"
           className="inline-flex items-center gap-2 rounded-full border border-[#38b9ef] bg-[#38b9ef]/15 px-5 py-2 text-[#bcf2ff] transition hover:bg-[#38b9ef]/25"
