@@ -19,6 +19,10 @@ type ServiceLane = {
   points: string[]
   icon: LucideIcon
   panelClassName: string
+  badgeClassName: string
+  surfaceClassName: string
+  pointClassName: string
+  pointNumberClassName: string
 }
 
 const serviceLanes: ServiceLane[] = [
@@ -37,7 +41,12 @@ const serviceLanes: ServiceLane[] = [
     ],
     icon: Blocks,
     panelClassName:
-      "border-[#ffb7aa]/35 bg-linear-to-br from-[#ef6654]/95 via-[#df5848]/95 to-[#c94336]/95",
+      "border-[#ffe4a5]/50 bg-linear-to-br from-[#f5cb63]/96 via-[#d69f33]/95 to-[#8f6517]/95",
+    badgeClassName:
+      "border-[#fff0c9]/75 bg-[#6a4b10]/45 text-[#fff7e3]",
+    surfaceClassName: "border-[#ffe6ac]/38 bg-[#5b3d07]/34",
+    pointClassName: "border-[#ffe9bc]/26 bg-[#3d2803]/34",
+    pointNumberClassName: "text-[#ffeabf]/95",
   },
   {
     title: "Develop",
@@ -57,7 +66,12 @@ const serviceLanes: ServiceLane[] = [
     ],
     icon: Code2,
     panelClassName:
-      "border-[#95d8ff]/35 bg-linear-to-br from-[#0f78d6]/95 via-[#0d65ba]/95 to-[#0c579f]/95",
+      "border-[#ffc9ee]/50 bg-linear-to-br from-[#ff7be0]/95 via-[#e545ba]/95 to-[#8f1d70]/95",
+    badgeClassName:
+      "border-[#ffd9f3]/75 bg-[#651b51]/45 text-[#fff0fb]",
+    surfaceClassName: "border-[#ffcaed]/38 bg-[#531445]/34",
+    pointClassName: "border-[#ffd9f4]/28 bg-[#36092b]/34",
+    pointNumberClassName: "text-[#ffd9f3]/95",
   },
   {
     title: "Support",
@@ -72,7 +86,12 @@ const serviceLanes: ServiceLane[] = [
     ],
     icon: ShieldCheck,
     panelClassName:
-      "border-[#bca0ff]/35 bg-linear-to-br from-[#7a4dff]/95 via-[#6f42ee]/95 to-[#5a31d1]/95",
+      "border-[#d6d9df]/50 bg-linear-to-br from-[#9ea5b0]/95 via-[#767d89]/95 to-[#4f5662]/95",
+    badgeClassName:
+      "border-[#e2e5ea]/75 bg-[#343a45]/45 text-[#f7f9fc]",
+    surfaceClassName: "border-[#d4d8df]/38 bg-[#2b313d]/34",
+    pointClassName: "border-[#dde1e7]/28 bg-[#1c222d]/36",
+    pointNumberClassName: "text-[#e2e6ec]/95",
   },
   {
     title: "Delivery & Deployment",
@@ -88,7 +107,12 @@ const serviceLanes: ServiceLane[] = [
     ],
     icon: Rocket,
     panelClassName:
-      "border-[#9cefe8]/35 bg-linear-to-br from-[#11a0a1]/95 via-[#10898b]/95 to-[#0e7477]/95",
+      "border-[#daf9a7]/50 bg-linear-to-br from-[#b8f557]/95 via-[#8ece31]/95 to-[#4f7d12]/95",
+    badgeClassName:
+      "border-[#e7ffbe]/75 bg-[#3d6310]/45 text-[#f8ffe8]",
+    surfaceClassName: "border-[#ddf8aa]/38 bg-[#33530d]/34",
+    pointClassName: "border-[#e8ffbf]/28 bg-[#223607]/36",
+    pointNumberClassName: "text-[#e9ffc4]/95",
   },
 ]
 
@@ -192,7 +216,9 @@ export default function ServicesPage() {
                 >
                   <div className="grid h-full grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.1fr]">
                     <div>
-                      <div className="inline-flex items-center gap-2 rounded-full border border-white/40 bg-black/15 px-3 py-1.5 text-xs font-semibold tracking-[0.14em] uppercase">
+                      <div
+                        className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold tracking-[0.14em] uppercase ${lane.badgeClassName}`}
+                      >
                         <lane.icon className="h-4 w-4" />
                         Stage {String(index + 1).padStart(2, "0")}
                       </div>
@@ -207,14 +233,18 @@ export default function ServicesPage() {
                       </p>
                     </div>
 
-                    <div className="rounded-2xl border border-white/30 bg-black/15 p-4 sm:p-6">
+                    <div
+                      className={`rounded-2xl border p-4 sm:p-6 ${lane.surfaceClassName}`}
+                    >
                       <ul className="space-y-3">
                         {lane.points.map((point, pointIndex) => (
                           <li
                             key={point}
-                            className="flex items-center gap-4 rounded-xl border border-white/20 bg-black/20 px-3 py-2.5 sm:px-4"
+                            className={`flex items-center gap-4 rounded-xl border px-3 py-2.5 sm:px-4 ${lane.pointClassName}`}
                           >
-                            <span className="w-9 text-center text-lg font-bold text-white/90">
+                            <span
+                              className={`w-9 text-center text-lg font-bold ${lane.pointNumberClassName}`}
+                            >
                               {String(pointIndex + 1).padStart(2, "0")}
                             </span>
                             <span className="text-base font-semibold sm:text-lg">
