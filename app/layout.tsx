@@ -4,6 +4,7 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import ConvexClientProvider from "@/components/convex-client-provider"
 import { ClerkProvider } from "@clerk/nextjs"
+import FloatingContactButton from "@/components/floating-contact-button"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -36,6 +37,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <ClerkProvider>
             <ConvexClientProvider>{children}</ConvexClientProvider>
           </ClerkProvider>
+          <FloatingContactButton />
         </ThemeProvider>
       </body>
     </html>

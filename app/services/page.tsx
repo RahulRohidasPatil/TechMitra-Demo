@@ -216,11 +216,11 @@ export default function ServicesPage() {
               return (
                 <div
                   key={lane.title}
-                  className="relative mb-6 h-[var(--lane-mobile-height)] last:mb-0 sm:mb-0 sm:h-[88vh]"
+                  className="relative mb-6 h-(--lane-mobile-height) last:mb-0 sm:mb-0 sm:h-[88vh]"
                   style={laneWrapperStyle}
                 >
                   <article
-                    className={`sticky top-[var(--lane-mobile-top)] rounded-3xl border p-6 text-white shadow-[0_28px_70px_rgba(0,0,0,0.35)] sm:top-[var(--lane-desktop-top)] sm:p-10 ${lane.panelClassName}`}
+                    className={`sticky top-(--lane-mobile-top) rounded-3xl border p-6 text-white shadow-[0_28px_70px_rgba(0,0,0,0.35)] sm:top-(--lane-desktop-top) sm:p-10 ${lane.panelClassName}`}
                     style={lanePanelStyle}
                   >
                     <div className="grid grid-cols-1 gap-8 sm:h-full sm:items-center lg:grid-cols-[1fr_1.1fr]">
