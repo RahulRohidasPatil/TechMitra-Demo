@@ -11,6 +11,7 @@ import {
   type LucideIcon,
 } from "lucide-react"
 import Link from "next/link"
+import type { CSSProperties } from "react"
 
 type ServiceLane = {
   title: string
@@ -201,59 +202,72 @@ export default function ServicesPage() {
           </div>
 
           <div className="mt-10">
-            {serviceLanes.map((lane, index) => (
-              <div key={lane.title} className="relative h-[84vh] sm:h-[88vh]">
-                <article
-                  className={`sticky rounded-3xl border p-6 text-white shadow-[0_28px_70px_rgba(0,0,0,0.35)] sm:p-10 ${lane.panelClassName}`}
-                  style={{
-                    top: `${88 + index * 8}px`,
-                    zIndex: serviceLanes.length - index,
-                  }}
-                >
-                  <div className="grid h-full grid-cols-1 items-center gap-8 lg:grid-cols-[1fr_1.1fr]">
-                    <div>
-                      <div
-                        className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold tracking-[0.14em] uppercase ${lane.badgeClassName}`}
-                      >
-                        <lane.icon className="h-4 w-4" />
-                        Stage {String(index + 1).padStart(2, "0")}
-                      </div>
-                      <h3 className="mt-5 text-5xl font-extrabold tracking-tight sm:text-6xl">
-                        {lane.title}
-                      </h3>
-                      <p className="mt-2 text-lg font-semibold text-white/90">
-                        {lane.subtitle}
-                      </p>
-                      <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
-                        {lane.description}
-                      </p>
-                    </div>
+            {serviceLanes.map((lane, index) => {
+              const laneWrapperStyle = {
+                "--lane-mobile-height": `max(${480 + lane.points.length * 68}px, ${92 + lane.points.length * 6}svh)`,
+              } as CSSProperties
 
-                    <div
-                      className={`rounded-2xl border p-4 sm:p-6 ${lane.surfaceClassName}`}
-                    >
-                      <ul className="space-y-3">
-                        {lane.points.map((point, pointIndex) => (
-                          <li
-                            key={point}
-                            className={`flex items-center gap-4 rounded-xl border px-3 py-2.5 sm:px-4 ${lane.pointClassName}`}
-                          >
-                            <span
-                              className={`w-9 text-center text-lg font-bold ${lane.pointNumberClassName}`}
+              const lanePanelStyle = {
+                "--lane-mobile-top": `${24 + index * 8}px`,
+                "--lane-desktop-top": `${88 + index * 8}px`,
+                zIndex: serviceLanes.length - index,
+              } as CSSProperties
+
+              return (
+                <div
+                  key={lane.title}
+                  className="relative mb-6 h-[var(--lane-mobile-height)] last:mb-0 sm:mb-0 sm:h-[88vh]"
+                  style={laneWrapperStyle}
+                >
+                  <article
+                    className={`sticky top-[var(--lane-mobile-top)] rounded-3xl border p-6 text-white shadow-[0_28px_70px_rgba(0,0,0,0.35)] sm:top-[var(--lane-desktop-top)] sm:p-10 ${lane.panelClassName}`}
+                    style={lanePanelStyle}
+                  >
+                    <div className="grid grid-cols-1 gap-8 sm:h-full sm:items-center lg:grid-cols-[1fr_1.1fr]">
+                      <div>
+                        <div
+                          className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-semibold tracking-[0.14em] uppercase ${lane.badgeClassName}`}
+                        >
+                          <lane.icon className="h-4 w-4" />
+                          Stage {String(index + 1).padStart(2, "0")}
+                        </div>
+                        <h3 className="mt-5 text-5xl font-extrabold tracking-tight sm:text-6xl">
+                          {lane.title}
+                        </h3>
+                        <p className="mt-2 text-lg font-semibold text-white/90">
+                          {lane.subtitle}
+                        </p>
+                        <p className="mt-5 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
+                          {lane.description}
+                        </p>
+                      </div>
+
+                      <div
+                        className={`rounded-2xl border p-4 sm:p-6 ${lane.surfaceClassName}`}
+                      >
+                        <ul className="space-y-3">
+                          {lane.points.map((point, pointIndex) => (
+                            <li
+                              key={point}
+                              className={`flex items-center gap-4 rounded-xl border px-3 py-2.5 sm:px-4 ${lane.pointClassName}`}
                             >
-                              {String(pointIndex + 1).padStart(2, "0")}
-                            </span>
-                            <span className="text-base font-semibold sm:text-lg">
-                              {point}
-                            </span>
-                          </li>
-                        ))}
-                      </ul>
+                              <span
+                                className={`w-9 text-center text-lg font-bold ${lane.pointNumberClassName}`}
+                              >
+                                {String(pointIndex + 1).padStart(2, "0")}
+                              </span>
+                              <span className="text-base font-semibold sm:text-lg">
+                                {point}
+                              </span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
-                  </div>
-                </article>
-              </div>
-            ))}
+                  </article>
+                </div>
+              )
+            })}
           </div>
         </div>
       </section>
