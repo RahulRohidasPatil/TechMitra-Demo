@@ -2,14 +2,16 @@ import TMHeader from "@/components/tm-header"
 import {
   ArrowRight,
   BadgeCheck,
+  Blocks,
   BrainCircuit,
   ChevronDown,
-  Globe2,
   Handshake,
   Mail,
   Network,
   Phone,
-  Radar,
+  Code2,
+  ServerCog,
+  ShieldCheck,
 } from "lucide-react"
 import Link from "next/link"
 
@@ -93,13 +95,15 @@ export default function Home() {
   }))
 
   const heroNodes = [
-  { Icon: BadgeCheck, angle: -70, radius: 36, label: "Trust" },
-  { Icon: BrainCircuit, angle: -20, radius: 38, label: "Signals" },
-  { Icon: Radar, angle: 35, radius: 36, label: "Risk" },
-  { Icon: Globe2, angle: 95, radius: 34, label: "Geo" },
-  { Icon: Network, angle: 150, radius: 36, label: "Network" },
-  { Icon: Handshake, angle: 210, radius: 34, label: "Delivery" },
-];
+    { Icon: BadgeCheck, angle: -78, radius: 36, label: "Trust" },
+    { Icon: BrainCircuit, angle: -30, radius: 38, label: "AI" },
+    { Icon: Blocks, angle: 14, radius: 34, label: "Design" },
+    { Icon: Code2, angle: 58, radius: 36, label: "Develop" },
+    { Icon: ServerCog, angle: 104, radius: 35, label: "Cloud" },
+    { Icon: Network, angle: 150, radius: 36, label: "Network" },
+    { Icon: Handshake, angle: 198, radius: 34, label: "Delivery" },
+    { Icon: ShieldCheck, angle: 242, radius: 35, label: "Security" },
+  ]
 
   return (
     <main className="min-h-screen bg-[#01050d] text-[#f0fbff]">

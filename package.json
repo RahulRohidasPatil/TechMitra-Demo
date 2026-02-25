@@ -8,8 +8,8 @@
     "dev:backend": "convex dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint",
-    "format": "prettier . --write"
+    "prelint": "prettier . --write",
+    "lint": "eslint"
   },
   "dependencies": {
     "@clerk/nextjs": "^6.38.0",
