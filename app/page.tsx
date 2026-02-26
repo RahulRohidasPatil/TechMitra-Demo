@@ -289,7 +289,7 @@ export default function Home() {
 
           <aside
             id="our-services"
-            className="rounded-3xl border border-cyan-300/20 bg-[#041324]/80 p-6 sm:p-8"
+            className="self-start rounded-3xl border border-cyan-300/20 bg-[#041324]/80 p-6 sm:p-8"
           >
             <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
               Our Services
