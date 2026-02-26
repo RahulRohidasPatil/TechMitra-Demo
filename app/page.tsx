@@ -195,43 +195,45 @@ export default function Home() {
               </div>
 
               {/* Polar-positioned nodes */}
-              {heroNodes.map(({ Icon, angle, radius, label }) => {
-                const rad = (angle * Math.PI) / 180
-                const x = (radius * Math.cos(rad)).toFixed(3)
-                const y = (radius * Math.sin(rad)).toFixed(3)
+              <div className="pointer-events-none absolute inset-0 motion-safe:animate-[spin_34s_linear_infinite] motion-reduce:animate-none">
+                {heroNodes.map(({ Icon, angle, radius, label }) => {
+                  const rad = (angle * Math.PI) / 180
+                  const x = (radius * Math.cos(rad)).toFixed(3)
+                  const y = (radius * Math.sin(rad)).toFixed(3)
 
-                return (
-                  <div
-                    key={label}
-                    className="absolute"
-                    style={{
-                      left: `calc(50% + ${x}%)`,
-                      top: `calc(50% + ${y}%)`,
-                    }}
-                  >
-                    <div className="group relative -translate-x-1/2 -translate-y-1/2">
-                      {/* Tooltip */}
-                      <span className="pointer-events-none absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 rounded-full border border-[#4ac4f3]/55 bg-[#041423]/95 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-[#c9f3ff] opacity-0 shadow-[0_0_26px_rgba(78,196,244,0.22)] backdrop-blur-sm transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100">
-                        {label}
-                      </span>
+                  return (
+                    <div
+                      key={label}
+                      className="pointer-events-auto absolute"
+                      style={{
+                        left: `calc(50% + ${x}%)`,
+                        top: `calc(50% + ${y}%)`,
+                      }}
+                    >
+                      <div className="group relative -translate-x-1/2 -translate-y-1/2 motion-safe:animate-[spin_34s_linear_infinite_reverse] motion-reduce:animate-none">
+                        {/* Tooltip */}
+                        <span className="pointer-events-none absolute top-[calc(100%+10px)] left-1/2 -translate-x-1/2 rounded-full border border-[#4ac4f3]/55 bg-[#041423]/95 px-2.5 py-1 text-xs font-semibold whitespace-nowrap text-[#c9f3ff] opacity-0 shadow-[0_0_26px_rgba(78,196,244,0.22)] backdrop-blur-sm transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100">
+                          {label}
+                        </span>
 
-                      {/* Glow halo */}
-                      <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#56cff8]/18 opacity-0 blur-md transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100" />
+                        {/* Glow halo */}
+                        <span className="pointer-events-none absolute -inset-2 rounded-full bg-[#56cff8]/18 opacity-0 blur-md transition duration-200 group-focus-within:opacity-100 group-hover:opacity-100" />
 
-                      <button
-                        type="button"
-                        aria-label={label}
-                        className="relative grid h-10 w-10 place-items-center rounded-full border border-[#4ac4f3]/60 bg-[#041423]/95 text-[#bdefff] shadow-[0_0_28px_rgba(78,196,244,0.20)] transition duration-200 outline-none group-hover:scale-105 focus-visible:scale-105 focus-visible:ring-2 focus-visible:ring-[#5cd1f8]/60"
-                      >
-                        <Icon
-                          aria-hidden
-                          className="h-4.5 w-4.5 text-[#5cd1f8] drop-shadow-[0_0_10px_rgba(92,209,248,0.65)]"
-                        />
-                      </button>
+                        <button
+                          type="button"
+                          aria-label={label}
+                          className="relative grid h-10 w-10 place-items-center rounded-full border border-[#4ac4f3]/60 bg-[#041423]/95 text-[#bdefff] shadow-[0_0_28px_rgba(78,196,244,0.20)] transition duration-200 outline-none group-hover:scale-105 focus-visible:scale-105 focus-visible:ring-2 focus-visible:ring-[#5cd1f8]/60"
+                        >
+                          <Icon
+                            aria-hidden
+                            className="h-4.5 w-4.5 text-[#5cd1f8] drop-shadow-[0_0_10px_rgba(92,209,248,0.65)]"
+                          />
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                )
-              })}
+                  )
+                })}
+              </div>
             </div>
           </div>
         </div>
