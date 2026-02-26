@@ -216,7 +216,7 @@ export default function ServicesPage() {
               return (
                 <div
                   key={lane.title}
-                  className="relative mb-6 h-(--lane-mobile-height) last:mb-0 sm:mb-0 sm:h-[88vh]"
+                  className="relative mb-6 h-(--lane-mobile-height) last:mb-0 sm:mb-4 sm:last:mb-0 sm:h-[88vh]"
                   style={laneWrapperStyle}
                 >
                   <article
