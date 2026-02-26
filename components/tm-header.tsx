@@ -31,9 +31,6 @@ export default function TMHeader() {
           <p className="text-xl font-extrabold tracking-tight text-[#51c5f7]">
             Tech Mitra
           </p>
-          <p className="text-xs font-medium tracking-[0.18em] text-[#9bcbe4] uppercase">
-            Shaping Ideas Into Scalable Solutions
-          </p>
         </div>
       </div>
 
