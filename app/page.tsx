@@ -1,4 +1,5 @@
 import TMHeader from "@/components/tm-header"
+import ProjectInquiryForm from "@/components/project-inquiry-form"
 import {
   ArrowRight,
   BadgeCheck,
@@ -287,47 +288,51 @@ export default function Home() {
             </article>
           </div>
 
-          <aside
-            id="our-services"
-            className="self-start rounded-3xl border border-cyan-300/20 bg-[#041324]/80 p-6 sm:p-8"
-          >
-            <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
-              Our Services
-            </h2>
-            <div className="mt-7 space-y-4">
-              {serviceGroups.map((group) => (
-                <details
-                  key={group.title}
-                  className="group overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#081f38]/70 [&_summary::-webkit-details-marker]:hidden"
-                >
-                  <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5">
-                    <div>
-                      <h3 className="text-xs font-bold tracking-[0.14em] text-[#90d6f2] uppercase">
-                        {group.title}
-                      </h3>
-                      <p className="mt-1 text-xs text-[#9bc9df]/80">
-                        {group.items.length} services
-                      </p>
-                    </div>
-                    <span className="rounded-full border border-cyan-300/30 bg-[#0e2c4d] p-1.5 text-[#9bdcf8] transition group-open:bg-[#13436f]">
-                      <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open:rotate-180" />
-                    </span>
-                  </summary>
+          <div className="space-y-6 self-start">
+            <aside
+              id="our-services"
+              className="rounded-3xl border border-cyan-300/20 bg-[#041324]/80 p-6 sm:p-8"
+            >
+              <h2 className="text-center text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
+                Our Services
+              </h2>
+              <div className="mt-7 space-y-4">
+                {serviceGroups.map((group) => (
+                  <details
+                    key={group.title}
+                    className="group overflow-hidden rounded-2xl border border-cyan-300/25 bg-[#081f38]/70 [&_summary::-webkit-details-marker]:hidden"
+                  >
+                    <summary className="flex cursor-pointer list-none items-center justify-between gap-3 px-4 py-3.5">
+                      <div>
+                        <h3 className="text-xs font-bold tracking-[0.14em] text-[#90d6f2] uppercase">
+                          {group.title}
+                        </h3>
+                        <p className="mt-1 text-xs text-[#9bc9df]/80">
+                          {group.items.length} services
+                        </p>
+                      </div>
+                      <span className="rounded-full border border-cyan-300/30 bg-[#0e2c4d] p-1.5 text-[#9bdcf8] transition group-open:bg-[#13436f]">
+                        <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open:rotate-180" />
+                      </span>
+                    </summary>
 
-                  <ul className="space-y-2 px-4 pb-4">
-                    {group.items.map((service) => (
-                      <li
-                        key={service}
-                        className="rounded-lg border border-cyan-300/25 bg-[#10244d] px-4 py-3 text-base font-semibold text-[#e9f6ff]"
-                      >
-                        {service}
-                      </li>
-                    ))}
-                  </ul>
-                </details>
-              ))}
-            </div>
-          </aside>
+                    <ul className="space-y-2 px-4 pb-4">
+                      {group.items.map((service) => (
+                        <li
+                          key={service}
+                          className="rounded-lg border border-cyan-300/25 bg-[#10244d] px-4 py-3 text-base font-semibold text-[#e9f6ff]"
+                        >
+                          {service}
+                        </li>
+                      ))}
+                    </ul>
+                  </details>
+                ))}
+              </div>
+            </aside>
+
+            <ProjectInquiryForm />
+          </div>
         </div>
       </section>
 

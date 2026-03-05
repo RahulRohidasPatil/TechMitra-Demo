@@ -9,6 +9,7 @@
  */
 
 import type * as previousWork from "../previousWork.js";
+import type * as projectInquiries from "../projectInquiries.js";
 
 import type {
   ApiFromModules,
@@ -18,6 +19,7 @@ import type {
 
 declare const fullApi: ApiFromModules<{
   previousWork: typeof previousWork;
+  projectInquiries: typeof projectInquiries;
 }>;
 
 /**

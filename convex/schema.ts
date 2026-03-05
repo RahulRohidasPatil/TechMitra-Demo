@@ -15,4 +15,14 @@ export default defineSchema({
   })
     .index("by_company_email", ["companyEmail"])
     .index("by_created_at", ["createdAt"]),
+  projectInquiries: defineTable({
+    name: v.string(),
+    email: v.string(),
+    phone: v.string(),
+    service: v.string(),
+    message: v.string(),
+    createdAt: v.number(),
+  })
+    .index("by_email", ["email"])
+    .index("by_created_at", ["createdAt"]),
 })
