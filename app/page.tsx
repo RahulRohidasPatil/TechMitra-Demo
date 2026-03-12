@@ -1,7 +1,6 @@
 import TMHeader from "@/components/tm-header"
 import ProjectInquiryForm from "@/components/project-inquiry-form"
 import {
-  ArrowRight,
   BadgeCheck,
   Blocks,
   BrainCircuit,
@@ -14,7 +13,6 @@ import {
   ServerCog,
   ShieldCheck,
 } from "lucide-react"
-import Link from "next/link"
 
 const serviceGroups = [
   {
@@ -133,8 +131,9 @@ export default function Home() {
 
           <div className="mt-11 grid grid-cols-1 items-center gap-10 lg:grid-cols-[1fr_1.05fr]">
             <div>
-              <p className="text-sm font-semibold tracking-[0.16em] text-[#89c9e8] uppercase">
-                Tech Mitra
+              <p className="flex items-center gap-2 text-sm font-semibold tracking-[0.16em] text-[#89c9e8] uppercase">
+                <span>Tech Mitra</span>
+                <span className="h-2 w-2 rounded-full bg-[#f0a342] shadow-[0_0_14px_rgba(240,163,66,0.9)]" />
               </p>
               <h1 className="mt-3 text-4xl leading-[1.1] font-extrabold text-[#62ccf6] sm:text-5xl lg:text-6xl">
                 Shaping Ideas into
@@ -148,16 +147,9 @@ export default function Home() {
                 stand out.
               </p>
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/ask-for-previous-work"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#52cbf8] bg-[#52cbf8]/10 px-5 py-2.5 font-semibold text-[#bdeeff] transition hover:bg-[#52cbf8]/20"
-                >
-                  Ask for previous work
-                  <ArrowRight className="h-4 w-4" />
-                </Link>
                 <a
                   href="#contact"
-                  className="inline-flex items-center gap-2 rounded-full border border-[#f0a342]/45 bg-[#f0a342]/10 px-5 py-2.5 font-semibold text-[#ffd39f] transition hover:bg-[#f0a342]/20"
+                  className="inline-flex items-center gap-2 rounded-full border border-[#52cbf8] bg-[#52cbf8]/10 px-5 py-2.5 font-semibold text-[#bdeeff] transition hover:bg-[#52cbf8]/20"
                 >
                   Contact Us
                 </a>
@@ -183,14 +175,15 @@ export default function Home() {
               <div className="absolute inset-0 grid place-items-center">
                 <div className="rounded-3xl border border-[#53cdf8]/45 bg-[linear-gradient(180deg,rgba(2,22,41,0.92),rgba(3,20,37,0.78))] px-7 py-6 text-center shadow-[inset_0_0_34px_rgba(56,178,233,0.14),0_0_48px_rgba(62,196,250,0.18)] backdrop-blur-sm">
                   <div className="mx-auto mb-2 inline-flex items-center gap-2 rounded-full border border-[#57cff8]/35 bg-[#083055]/50 px-3 py-1 text-[11px] font-semibold tracking-[0.14em] text-[#a6def3] uppercase">
-                    <BrainCircuit className="h-3.5 w-3.5 text-[#67d5f9] drop-shadow-[0_0_10px_rgba(93,214,251,0.65)]" />
+                    <BrainCircuit className="h-3.5 w-3.5 text-[#f0a342] drop-shadow-[0_0_10px_rgba(240,163,66,0.7)]" />
                     Scalable Solutions
                   </div>
                   <p className="text-sm tracking-[0.18em] text-[#8ecce9] uppercase">
                     Tech Mitra
                   </p>
-                  <p className="mt-1 text-3xl font-extrabold text-[#61cef6] drop-shadow-[0_0_14px_rgba(93,214,251,0.35)]">
-                    AI + Data
+                  <p className="mt-1 text-3xl font-extrabold drop-shadow-[0_0_14px_rgba(93,214,251,0.35)]">
+                    <span className="text-[#61cef6]">AI + </span>
+                    <span className="text-[#f0a342]">Data</span>
                   </p>
                 </div>
               </div>
@@ -223,11 +216,11 @@ export default function Home() {
                         <button
                           type="button"
                           aria-label={label}
-                          className="relative grid h-10 w-10 place-items-center rounded-full border border-[#4ac4f3]/60 bg-[#041423]/95 text-[#bdefff] shadow-[0_0_28px_rgba(78,196,244,0.20)] transition duration-200 outline-none group-hover:scale-105 focus-visible:scale-105 focus-visible:ring-2 focus-visible:ring-[#5cd1f8]/60"
+                          className="relative grid h-10 w-10 place-items-center rounded-full border border-[#4ac4f3]/60 bg-[#041423]/95 text-[#ffd8a4] shadow-[0_0_28px_rgba(78,196,244,0.2)] transition duration-200 outline-none group-hover:scale-105 focus-visible:scale-105 focus-visible:ring-2 focus-visible:ring-[#5cd1f8]/60"
                         >
                           <Icon
                             aria-hidden
-                            className="h-4.5 w-4.5 text-[#5cd1f8] drop-shadow-[0_0_10px_rgba(92,209,248,0.65)]"
+                            className="h-4.5 w-4.5 text-[#f0a342] drop-shadow-[0_0_10px_rgba(240,163,66,0.72)]"
                           />
                         </button>
                       </div>
