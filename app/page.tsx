@@ -1,6 +1,7 @@
 import TMHeader from "@/components/tm-header"
 import ProjectInquiryForm from "@/components/project-inquiry-form"
 import {
+  ArrowRight,
   BadgeCheck,
   Blocks,
   BrainCircuit,
@@ -13,6 +14,7 @@ import {
   ServerCog,
   ShieldCheck,
 } from "lucide-react"
+import Link from "next/link"
 
 const serviceGroups = [
   {
@@ -79,6 +81,18 @@ const highlights = [
     title: "Support",
     description:
       "From start to finish, we guide, document, and support you every step of the way.",
+  },
+  {
+    icon: ServerCog,
+    title: "End-to-End Delivery",
+    description:
+      "From discovery to deployment, we handle the full build journey with one coordinated team.",
+  },
+  {
+    icon: ShieldCheck,
+    title: "Reliable Execution",
+    description:
+      "We focus on quality, stability, and clear process so your product launches with confidence.",
   },
 ]
 
@@ -235,28 +249,45 @@ export default function Home() {
 
       <section className="border-b border-cyan-500/15 bg-[#01050d] py-16">
         <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 px-4 sm:px-8 lg:grid-cols-[1fr_0.9fr] lg:px-10">
-          <div className="space-y-12">
-            <article id="who-we-are">
-              <h2 className="text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
-                Who We Are?
+          <div className="space-y-8">
+            <article className="rounded-3xl border border-cyan-300/20 bg-[linear-gradient(160deg,rgba(4,19,36,0.92),rgba(6,28,49,0.78))] p-6 sm:p-8">
+              <p className="text-xs font-semibold tracking-[0.18em] text-[#8ecce9] uppercase">
+                About Us
+              </p>
+              <h2 className="mt-3 text-3xl font-extrabold tracking-tight text-[#f2fbff] sm:text-4xl">
+                One team for strategy, build, and delivery.
               </h2>
-              <p className="mt-5 max-w-3xl text-lg leading-relaxed text-[#c6def0]">
-                At Tech Mitra, we believe that great ideas deserve the right
-                execution. We combine AI, analytics, full-stack development, and
-                design to craft solutions that work in the real world.
+              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-[#c6def0]">
+                Tech Mitra brings AI, analytics, design, and engineering into a
+                single delivery flow so ambitious ideas move from concept to
+                launch without friction.
               </p>
-              <p className="mt-4 max-w-3xl text-lg leading-relaxed text-[#c6def0]">
-                From dashboards that turn numbers into growth stories, to
-                websites that convert, we deliver creatively, precisely, and
-                reliably with technology as our backbone.
-              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                {["AI + analytics", "Design + build", "Launch + support"].map(
+                  (item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-cyan-300/25 bg-[#082339] px-3 py-1.5 text-sm font-semibold text-[#d8effa]"
+                    >
+                      {item}
+                    </span>
+                  ),
+                )}
+              </div>
+              <Link
+                href="/about-us"
+                className="mt-6 inline-flex items-center gap-2 rounded-full border border-cyan-300/35 bg-[#06223a]/70 px-4 py-2 text-sm font-semibold text-[#bdefff] transition hover:bg-[#0a2f4f]"
+              >
+                Read About Us
+                <ArrowRight className="h-4 w-4" />
+              </Link>
             </article>
 
             <article id="why-choose-us">
-              <h2 className="text-4xl font-extrabold tracking-tight text-[#f2fbff] sm:text-5xl">
+              <h2 className="text-3xl font-extrabold tracking-tight text-[#f2fbff] sm:text-4xl">
                 Why Choose Us?
               </h2>
-              <ul className="mt-7 space-y-4">
+              <ul className="mt-6 grid gap-4">
                 {highlights.map((item) => (
                   <li
                     key={item.title}
